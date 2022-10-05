@@ -6,7 +6,7 @@ const initialState = [
     title: "Clean Code: A Handbook of Agile Software Craftsmanship",
     author: "Robert C. Martin",
     year: "2008",
-    image: <img src="https://drive.google.com/uc?export=view&id=1B6mKamPkhbhU8xDfovVrFsTMi3S_Q5zT" alt="book front"/>,
+    image: "https://drive.google.com/uc?export=view&id=1B6mKamPkhbhU8xDfovVrFsTMi3S_Q5zT",
     description:
       "Code is clean if it can be understood easily by everyone on the team. Clean code can be read and enhanced by a developer other than its original author. With understandability comes readability, changeability, extensibility and maintainability.",
     ISBN: "9780132350884",
