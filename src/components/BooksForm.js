@@ -60,9 +60,9 @@ function BooksForm() {
       />
       <input
         name="image"
-        type="image"
-        placeholder="image"
-        alt="image"
+        type="url"
+        placeholder="Insert image url"
+        alt="book front"
         onChange={handleChange}
       />
 
