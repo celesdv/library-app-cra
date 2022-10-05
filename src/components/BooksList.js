@@ -10,6 +10,7 @@ function BooksList() {
       {books.map((book) => (
         <div key={book.id}>
           <h2>{book.title}</h2>
+          <div>{book.image}</div>
           <h3>{book.author}</h3>
           <h3>{book.year}</h3>
           <p>{book.description}</p>
