@@ -21,8 +21,20 @@ export const bookSlice = createSlice({
       // console.log(state, action);
       state.push(action.payload);
     },
+    updatebook: (state, action) => {
+      const {id, title, author, year, ISBN, image, description} = action.payload;
+      const foundBook = state.find(book => book.id === id);
+      if (foundBook) {
+        foundBook.title = title
+        foundBook.author = author
+        foundBook.year = year
+        foundBook.ISBN = ISBN
+        foundBook.image = image
+        foundBook.description = description
+      }
+    },
   },
 });
 
-export const { addBook } = bookSlice.actions;
+export const { addBook, updatebook } = bookSlice.actions;
 export default bookSlice.reducer;
