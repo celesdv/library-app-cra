@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from "react-redux";
+import { Link } from 'react-router-dom';
 
 function BooksList() {
   const books = useSelector((state) => state.book)
@@ -7,6 +8,9 @@ function BooksList() {
 
   return (
     <div>
+      <Link to="/booksform">
+        Add Book
+      </Link>
       {books.map((book) => (
         <div key={book.id}>
           <h2>{book.title}</h2>
@@ -14,6 +18,9 @@ function BooksList() {
           <h3>{book.author}</h3>
           <h3>{book.year}</h3>
           <p>{book.description}</p>
+          <Link to={`/updatebook/${book.id}`} >
+            Edit
+          </Link>
         </div>
       ))}
     </div>
