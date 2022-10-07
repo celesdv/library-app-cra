@@ -33,6 +33,9 @@ function BooksList() {
           <Link to={`/updatebook/${book.id}`} >
             Edit
           </Link>
+          <Link to={`/details/${book.id}`} >
+            Details
+          </Link>
         </div>
       ))}
     </div>
