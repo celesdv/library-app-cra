@@ -1,4 +1,4 @@
-## kill Factory by Avalith
+## Skill Factory by Avalith
 
 ### Checkpoint 3 - Books's App
 
