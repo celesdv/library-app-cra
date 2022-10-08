@@ -23,7 +23,10 @@ The following dependencies have been used:
 * UUID
 `npm install uuid`
 
-# Getting Started with Create React App
+# Authentication:
+
+- prueba@prueba.com
+- qwerty123
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
