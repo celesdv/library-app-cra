@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addBook, updatebook } from "../features/book/bookSlice";
 import { v4 as uuid } from "uuid";
 import { useNavigate, useParams } from "react-router-dom";
+import { logoutUser } from '../config/firebase';
 
 function BooksForm() {
   const [book, setBook] = useState({
@@ -103,7 +104,13 @@ function BooksForm() {
         value={book.description}
       ></textarea>
         <button type="submit">Save</button>
+
+        <button onClick={logoutUser}>
+        Logout
+      </button>
     </form>
+
+    
   );
 }
 

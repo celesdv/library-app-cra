@@ -42,9 +42,9 @@ export const loginUser = (email, password) => {
 export const logoutUser = () => {
     const auth = getAuth();
     signOut(auth).then(() => {
-      alert('User signed out!');
+      alert('Saliste Correctamente');
     }).catch((error) => {
-      alert('Something went wrong!');
+      alert('Algo salió mal :(');
       const errorCode = error.code;
       console.log(errorCode);
     });

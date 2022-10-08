@@ -24,11 +24,11 @@ const Login = () => {
   const handleSubmit = () => {
     loginUser(email, password)
       .then((userCredential) => {
-        alert('User signed in');
-        navigate('/loginsc');
+        alert('Iniciaste Correctamente');
+        navigate('/booksform');
       })
       .catch((error) => {
-        alert('Something went wrong!');
+        alert('Algo salió mal :(');
         const errorCode = error.code;
         console.log(errorCode);
       });
@@ -39,13 +39,13 @@ const Login = () => {
   return (
     <div style={{ textAlign: 'center' }}>
       <div>
-        <h3>Login</h3>
+        <h3>Iniciar</h3>
       </div>
       <div>
         <input
           value={email}
           onChange={handleEmail}
-          placeholder="Type your e-mail"
+          placeholder="Ingresa tu e-mail"
         />
       </div>
       <div>
@@ -53,19 +53,19 @@ const Login = () => {
           type="password"
           value={password}
           onChange={handlePassword}
-          placeholder="Type your password"
+          placeholder="Ingresa tu contraseña"
         />
       </div>
       <button onClick={handleSubmit}>
-        Submit
+        Enviar
       </button>
       <div style={{ fontSize: '12px' }}>
-          Dont't have an account? Register {' '}
+          ¿No tenes una cuenta? Registrate {' '}
           <span 
             onClick={() => navigate('/register')}
             style={{ color: '#293462', fontWeight: 'bold', cursor: 'pointer' }}
           >
-            here
+            Aca
           </span>
       </div>
     </div>

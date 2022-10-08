@@ -23,10 +23,10 @@ const Register = () => {
     const handleRegister = () => {
         registerUser(email, password)
           .then((userCredential) => {
-            alert('User created successfully!')
+            alert('Usuario creado correctamente')
           })
           .catch((error) => {
-            alert('Something went wrong!')
+            alert('Algo salió mal :(')
             const errorCode = error.code;
             console.log(errorCode);
           });
@@ -36,13 +36,13 @@ const Register = () => {
   return (
     <div style={{ textAlign: 'center' }}>
       <div>
-        <h3>Register</h3>
+        <h3>Registro</h3>
       </div>
       <div>
         <input
           value={email}
           onChange={handleEmail}
-          placeholder="Type your e-mail"
+          placeholder="Escribi un e-mail"
         />
       </div>
       <div>
@@ -50,19 +50,19 @@ const Register = () => {
           type="password"
           value={password}
           onChange={handlePassword}
-          placeholder="Type your password"
+          placeholder="Escribi una contraseña"
         />
       </div>
       <button onClick={handleRegister}>
-        Submit
+        Enviar
       </button>
       <div style={{ fontSize: '12px' }}>
-          Already have an account? Please {' '}
+          ¿Ya tenes una cuenta? {' '}
           <span 
             onClick={() => navigate('/login')}
             style={{ color: '#293462', fontWeight: 'bold', cursor: 'pointer' }}
           >
-            sign in
+            Inicia Sesion
           </span>
       </div>
     </div>
