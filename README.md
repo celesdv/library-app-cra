@@ -23,7 +23,7 @@ The following dependencies have been used:
 * UUID
 `npm install uuid`
 * Tailwind CSS
-`npm install -D tailwindcss postcss autoprefixer`
+`npm install -D tailwindcss`
 
 # Authentication:
 
