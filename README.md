@@ -22,6 +22,8 @@ The following dependencies have been used:
 `npm install react-router-dom@6`
 * UUID
 `npm install uuid`
+* Tailwind CSS
+`npm install -D tailwindcss postcss autoprefixer`
 
 # Authentication:
 
