@@ -22,8 +22,13 @@ The following dependencies have been used:
 `npm install react-router-dom@6`
 * UUID
 `npm install uuid`
+* Tailwind CSS
+`npm install -D tailwindcss`
 
-# Getting Started with Create React App
+# Authentication:
+
+- prueba@prueba.com
+- qwerty123
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
