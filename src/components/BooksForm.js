@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { addBook, updatebook } from "../features/book/bookSlice";
 import { v4 as uuid } from "uuid";
 import { useNavigate, useParams } from "react-router-dom";
+import { logoutUser } from '../config/firebase';
+
 
 function BooksForm() {
     const [book, setBook] = useState({
@@ -86,7 +88,6 @@ function BooksForm() {
                                 required
                             />
                         </div>
-
                         <div className="mt-5 grid grid-cols-2 gap-5">
                             <input
                                 name="year"
@@ -142,12 +143,16 @@ function BooksForm() {
                             >
                                 Save
                             </button>
+                            <button onClick={logoutUser}>
+                                Logout
+                            </button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     );
+
 }
 
 // export const { addBook } = bookSlice.actions;
