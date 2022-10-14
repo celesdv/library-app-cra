@@ -25,7 +25,7 @@ The following dependencies have been used:
 * Tailwind CSS
 `npm install -D tailwindcss`
 
-# Authentication:
+## Authentication:
 
 ### USERS:
 
@@ -33,6 +33,8 @@ The following dependencies have been used:
 |-----------------------------|------------|
 | prueba@prueba.com           | qwerty123  | 
 | usuario@usuario.com         | 123456     | 
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
