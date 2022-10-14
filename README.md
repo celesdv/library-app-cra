@@ -30,7 +30,7 @@ The following dependencies have been used:
 ### USERS:
 
 | Email                       | Password   |
-|-----------------------------|------------|-
+|-----------------------------|------------|
 | prueba@prueba.com           | qwerty123  | 
 | usuario@usuario.com         | 123456     | 
 
