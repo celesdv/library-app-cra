@@ -1,6 +1,6 @@
-## Skill Factory by Avalith
+# Skill Factory by Avalith
 
-### Checkpoint 3 - Books's App
+## Checkpoint 3 - Books's App
 
 This project is a collaboration between the following people:
 
@@ -27,8 +27,12 @@ The following dependencies have been used:
 
 # Authentication:
 
-- prueba@prueba.com
-- qwerty123
+### USERS:
+
+| Email                       | Password   |
+|-----------------------------|------------|-
+| prueba@prueba.com           | qwerty123  | 
+| usuario@usuario.com         | 123456     | 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
