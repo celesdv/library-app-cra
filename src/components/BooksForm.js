@@ -3,10 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { addBook, updatebook } from "../features/book/bookSlice";
 import { v4 as uuid } from "uuid";
 
-import { useNavigate, useParams } from "react-router-dom";
-import { logoutUser } from '../config/firebase';
-
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { logoutUser } from '../config/firebase';
 
 
 function BooksForm() {
@@ -91,24 +89,6 @@ function BooksForm() {
                                 required
                             />
                         </div>
-
-
-      <textarea
-        name="description"
-        placeholder="description"
-        onChange={handleChange}
-        value={book.description}
-      ></textarea>
-        <button type="submit">Save</button>
-
-        <button onClick={logoutUser}>
-        Logout
-      </button>
-    </form>
-
-    
-  );
-
                         <div className="mt-5 grid grid-cols-2 gap-5">
                             <input
                                 name="year"
@@ -163,6 +143,9 @@ function BooksForm() {
                                 className="col-span-1 mr-2 mb-2 rounded-lg border border-purple-700 px-5 py-2.5 text-center text-sm font-medium text-purple-700 hover:bg-purple-800 hover:text-white focus:outline-none focus:ring-4 focus:ring-purple-300"
                             >
                                 Save
+                            </button>
+                            <button onClick={logoutUser}>
+                                Logout
                             </button>
                         </div>
                     </form>
