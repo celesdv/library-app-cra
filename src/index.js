@@ -12,8 +12,4 @@ root.render(
       <App />
   </Provider>
 
-    <Provider store={store}>
-        <App />
-    </Provider>
-
 );
