@@ -24,6 +24,8 @@ The following dependencies have been used:
 `npm install uuid`
 * Tailwind CSS
 `npm install -D tailwindcss`
+* SweetAlert 2
+`npm install sweetalert2`
 
 ## Authentication:
 
