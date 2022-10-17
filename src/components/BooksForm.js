@@ -4,8 +4,8 @@ import { addBook, updatebook } from "../features/book/bookSlice";
 import { v4 as uuid } from "uuid";
 
 import { useNavigate, useParams } from "react-router-dom";
-import { logoutUser } from '../config/firebase';
-
+import Swal from "sweetalert2";
+// import { logoutUser } from '../config/firebase';
 
 function BooksForm() {
     const [book, setBook] = useState({
@@ -39,18 +39,28 @@ function BooksForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        // Condicional que verifica si existe un id en el params de la URL, si existe ejecuta un Dispatch con el update sino ejecuta el agregar
-        if (params.id) {
-            dispatch(updatebook({ ...book, id: params.id }));
-        } else {
-            dispatch(
-                addBook({
-                    ...book,
-                    id: uuid(),
-                })
-            );
-        }
+        Swal.fire({
+            title: "Do you want to save the changes?",
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: "Save",
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                // Condicional que verifica si existe un id en el params de la URL, si existe ejecuta un Dispatch con el update sino ejecuta el agregar
+                if (params.id) {
+                    dispatch(updatebook({ ...book, id: params.id }));
+                } else {
+                    dispatch(
+                        addBook({
+                            ...book,
+                            id: uuid(),
+                        })
+                    );
+                }
+                Swal.fire("Saved!", "", "success");
+            }
+        });
         navigate("/");
     };
 
@@ -144,16 +154,15 @@ function BooksForm() {
                             >
                                 Save
                             </button>
-                            <button onClick={logoutUser}>
+                            {/* <button onClick={logoutUser}>
                                 Logout
-                            </button>
+                            </button> */}
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     );
-
 }
 
 // export const { addBook } = bookSlice.actions;

@@ -1,19 +1,40 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { deleteBook } from "../features/book/bookSlice";
 import { useDispatch } from "react-redux";
 import Header from "./Header";
+import { AuthContext } from "../context/authContext";
+import Swal from "sweetalert2";
 
 function BooksList() {
     const books = useSelector((state) => state.book);
     console.log(books);
 
     // ------------------------------------
+    const { currentUser } = useContext(AuthContext);
+
     const dispatch = useDispatch();
 
     const handleDelete = (id) => {
-        dispatch(deleteBook(id));
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                dispatch(deleteBook(id));
+                Swal.fire(
+                    "Book Deleted!",
+                    "Your book has been deleted.",
+                    "success"
+                );
+            }
+        });
     };
 
     return (
@@ -49,24 +70,36 @@ function BooksList() {
                             </div>
                         </div>
                         <div className=" grid grid-cols-1 items-center justify-center py-5 xl:grid-cols-3">
-                            <Link
-                                className="col-span-1 mx-auto mt-4 w-3/5 rounded-lg border-2 bg-gradient-to-r from-blue-600 to-cyan-400 py-2 text-center font-semibold text-white transition-all duration-200 ease-out hover:border-blue-400 focus:scale-95 md:w-4/5"
-                                to={`/details/${book.id}`}
-                            >
-                                Details
-                            </Link>
-                            <Link
-                                className="col-span-1 mx-auto mt-4 w-3/5 rounded-lg border-2 bg-gradient-to-r from-yellow-400 to-orange-400 py-2 text-center font-semibold text-white transition-all duration-200 ease-out hover:border-orange-400 focus:scale-95 md:w-4/5"
-                                to={`/updatebook/${book.id}`}
-                            >
-                                Edit
-                            </Link>
-                            <button
-                                className="col-span-1 mx-auto mt-4 w-3/5 rounded-lg border-2 bg-gradient-to-br from-red-600 to-orange-400 py-2 text-center font-semibold text-white transition-all duration-200 ease-out hover:border-red-500 focus:scale-95 md:w-4/5"
-                                onClick={() => handleDelete(book.id)}
-                            >
-                                Delete
-                            </button>
+                            {/* Verifica si hay un usuario logueado y muestra los botones de Editar y Eliminar */}
+                            {currentUser ? (
+                                <>
+                                    <Link
+                                        className="col-span-1 mx-auto mt-4 w-3/5 rounded-lg border-2 bg-gradient-to-r from-blue-600 to-cyan-400 py-2 text-center font-semibold text-white transition-all duration-200 ease-out hover:border-blue-400 focus:scale-95 md:w-4/5"
+                                        to={`/details/${book.id}`}
+                                    >
+                                        Details
+                                    </Link>
+                                    <Link
+                                        className="col-span-1 mx-auto mt-4 w-3/5 rounded-lg border-2 bg-gradient-to-r from-yellow-400 to-orange-400 py-2 text-center font-semibold text-white transition-all duration-200 ease-out hover:border-orange-400 focus:scale-95 md:w-4/5"
+                                        to={`/updatebook/${book.id}`}
+                                    >
+                                        Edit
+                                    </Link>
+                                    <button
+                                        className="col-span-1 mx-auto mt-4 w-3/5 rounded-lg border-2 bg-gradient-to-br from-red-600 to-orange-400 py-2 text-center font-semibold text-white transition-all duration-200 ease-out hover:border-red-500 focus:scale-95 md:w-4/5"
+                                        onClick={() => handleDelete(book.id)}
+                                    >
+                                        Delete
+                                    </button>
+                                </>
+                            ) : (
+                                <Link
+                                    className="col-span-1 mx-auto mt-4 w-3/5 rounded-lg border-2 bg-gradient-to-r from-blue-600 to-cyan-400 py-2 text-center font-semibold text-white transition-all duration-200 ease-out hover:border-blue-400 focus:scale-95 md:w-4/5 lg:col-span-3"
+                                    to={`/details/${book.id}`}
+                                >
+                                    Details
+                                </Link>
+                            )}
                         </div>
                     </div>
                 ))}
